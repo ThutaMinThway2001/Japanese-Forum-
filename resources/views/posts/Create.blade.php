@@ -1,6 +1,6 @@
 <x-MasterLayout>
     <main class="tm-main">
-        <form action="{{route('create')}}" method="post">
+        <form action="{{route('createPost')}}" method="post">
             @csrf
             <!-- Title input -->
             <div class="form-outline mb-4">

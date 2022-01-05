@@ -6,8 +6,8 @@
                 Forum Post
             </a></li>
         @auth
-        <li class="tm-nav-item {{request()->routeIs('create') ? 'active' : '' }}">
-            <a href="/create" class="tm-nav-link">
+        <li class="tm-nav-item {{request()->routeIs('createPost') ? 'active' : '' }}">
+            <a href="{{route('createPost')}}" class="tm-nav-link">
                 <i class="fas fa-pen"></i>
                 Create Post
             </a>
@@ -15,8 +15,8 @@
         @endauth
 
         @can('admin')
-        <li class="tm-nav-item {{request()->routeIs('create') ? 'active' : '' }}">
-            <a href="/create" class="tm-nav-link">
+        <li class="tm-nav-item">
+            <a href="{{route('adminIndex')}}" class="tm-nav-link">
                 <i class="fas fa-pen"></i>
                 Admin Panel
             </a>

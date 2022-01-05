@@ -24,8 +24,10 @@
         </div>
     </article>
     @empty
+
     <p>
         No Posts Yet!
     </p>
     @endforelse ($posts as $post)
+
 </div>

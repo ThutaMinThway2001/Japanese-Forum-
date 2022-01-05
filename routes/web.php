@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('showDetail');
+
 Route::middleware('roleModel')->group(function () {
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('editPost');
     Route::patch('/posts/{post}', [PostController::class, 'update'])->name('updatePost');
@@ -43,4 +45,9 @@ Route::middleware('guest')->group(function () {
     //login
     Route::get('/login', [SessionController::class, 'create'])->name('login');
     Route::post('/login', [SessionController::class, 'store'])->name('storeLogin');
+});
+
+Route::middleware('admin')->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('adminIndex');
+    Route::delete('/admin/{post}/delete', [AdminController::class, 'destroy'])->name('deleteAdminPost');
 });
