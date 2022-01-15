@@ -22,8 +22,6 @@
             @auth
             <li class="nav-item me-3 me-lg-1">
                 <a class="nav-link d-sm-flex align-items-sm-center" href="#">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle" height="22"
-                        alt="Black and White Portrait of a Man" loading="lazy" />
                     <strong class="d-none d-sm-block ms-1 text-white">{{auth()->user()->username}}</strong>
                 </a>
             </li>

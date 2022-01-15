@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('showDetail');
+Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
 
 Route::middleware('roleModel')->group(function () {
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('editPost');
@@ -34,7 +35,6 @@ Route::middleware('auth')->group(function () {
     //Comment
     Route::post('/posts/{post:slug}/comment', [CommentController::class, 'storeComment'])->name('storeComment');
     //logout
-    Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
 });
 
 Route::middleware('guest')->group(function () {
