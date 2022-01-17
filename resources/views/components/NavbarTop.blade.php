@@ -22,6 +22,8 @@
             @auth
             <li class="nav-item me-3 me-lg-1">
                 <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                    <img src="{{asset('storage/' . auth()->user()->profile)}}" width="25" height="20"
+                        class="img-fluid rounded-circle" alt="Townhouses and Skyscrapers" />
                     <strong class="d-none d-sm-block ms-1 text-white">{{auth()->user()->username}}</strong>
                 </a>
             </li>

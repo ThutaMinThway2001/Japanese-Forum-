@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('showDetail');
-Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
 
 Route::middleware('roleModel')->group(function () {
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('editPost');
@@ -31,10 +30,12 @@ Route::middleware('roleModel')->group(function () {
 Route::middleware('auth')->group(function () {
     //auth
     Route::get('/create', [PostController::class, 'create'])->name('createPost');
-    Route::post('/create', [PostController::class, 'storePost'])->name('updatePost');
+    Route::post('/create', [PostController::class, 'storePost'])->name('createPost');
     //Comment
     Route::post('/posts/{post:slug}/comment', [CommentController::class, 'storeComment'])->name('storeComment');
     //logout
+    Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
+    Route::post('/post/like/{id}', [PostController::class, 'like'])->name('like');
 });
 
 Route::middleware('guest')->group(function () {
@@ -50,4 +51,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware('admin')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('adminIndex');
     Route::delete('/admin/{post}/delete', [AdminController::class, 'destroy'])->name('deleteAdminPost');
+    //logout
+    Route::post('/admin/logout', [AdminController::class, 'logout'])->name('adminLogout');
+    Route::delete('/admin/posts/{post}', [AdminController::class, 'deletePost'])->name('adminDeletePost');
+    Route::delete('/admin/user/{user}', [AdminController::class, 'deleteUser'])->name('adminDeleteUser');
 });

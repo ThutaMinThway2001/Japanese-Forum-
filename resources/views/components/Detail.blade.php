@@ -24,9 +24,12 @@
             @endcan
         </div>
 
-
+        <div class="row">
+            <div class="col-md-12">
+                <x-CommentBox :post="$post" />
+            </div>
+        </div>
         <!-- Comments -->
-        <x-CommentBox :post="$post" />
         {{-- <div>
             <h2 class="tm-color-primary tm-post-title">Comments</h2>
             <hr class="tm-hr-primary tm-mb-45">

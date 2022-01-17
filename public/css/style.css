@@ -769,3 +769,18 @@ a:hover figcaption {
         max-width: 120px;
     }
 }
+
+.rounded-circle {
+    width: 21px;
+    height: 21px;
+}
+
+.btn1 {
+    color: blue;
+    border: 1px solid orangered;
+}
+
+.btn2 {
+    color: orangered;
+    border: 1px solid orangered;
+}

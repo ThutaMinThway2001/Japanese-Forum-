@@ -16,7 +16,14 @@
             <span class="tm-color-primary">{{$post->created_at->diffForHumans()}}</span>
         </div>
         <hr>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mt-3">
+            {{-- <form action="{{route('like', $post->id)}}" method="post">
+                @csrf
+                <button>
+                    <i class="fas fa-heart text-danger"><small class="ms-3">{{$post->likes->count()}}</small></i>
+                </button>
+            </form> --}}
+
             <span>{{$post->comments->count()}} {{$post->comments->count() <= 1? 'comment' : 'comments' }}</span>
                     <a href="/?author={{$post->author->username}}">
                         <span>{{$post->author->name}}</span>

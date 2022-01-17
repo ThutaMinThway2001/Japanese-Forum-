@@ -18,15 +18,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // Category::truncate();
-        $mgmg = User::factory()->create(['name' => 'mgmg', 'username' => 'mgmg']);
-        $kyawkyaw = User::factory()->create(['name' => 'kyawkyaw', 'username' => 'kyawkyaw']);
+        // $mgmg = User::factory()->create(['name' => 'mgmg', 'username' => 'mgmg']);
+        // $kyawkyaw = User::factory()->create(['name' => 'kyawkyaw', 'username' => 'kyawkyaw']);
 
-        $japaneseN5 = Category::factory()->create(['name' => 'N5 Level', 'slug' => 'n5_level']);
-        $japaneseN4 = Category::factory()->create(['name' => 'N4 Level', 'slug' => 'n4_level']);
-        $japaneseN3 = Category::factory()->create(['name' => 'N3 Level', 'slug' => 'n3_level']);
+        Category::factory()->create(['name' => 'N5 Level', 'slug' => 'n5_level']);
+        Category::factory()->create(['name' => 'N4 Level', 'slug' => 'n4_level']);
+        Category::factory()->create(['name' => 'N3 Level', 'slug' => 'n3_level']);
 
-        Post::factory(3)->create(['category_id' => $japaneseN5->id, 'user_id' => $mgmg->id]);
-        Post::factory(3)->create(['category_id' => $japaneseN4->id, 'user_id' => $mgmg->id]);
-        Post::factory(3)->create(['category_id' => $japaneseN3->id, 'user_id' => $kyawkyaw->id]);
+        // Post::factory(3)->create(['category_id' => $japaneseN5->id, 'user_id' => $mgmg->id]);
+        // Post::factory(3)->create(['category_id' => $japaneseN4->id, 'user_id' => $mgmg->id]);
+        // Post::factory(3)->create(['category_id' => $japaneseN3->id, 'user_id' => $kyawkyaw->id]);
     }
 }

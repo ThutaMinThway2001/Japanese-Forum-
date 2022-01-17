@@ -127,9 +127,13 @@
                                 <td>0</td>
                                 <td>{{$post->created_at->diffForHumans()}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-danger btn-sm px-3">
-                                        <i class="fas fa-times"></i>
-                                    </button>
+                                    <form action="{{route('adminDeletePost', $post->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm px-3">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
@@ -160,9 +164,13 @@
                                 <td>{{$post->author->email}}</td>
                                 <td>{{$post->author->created_at->diffForHumans()}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-danger btn-sm px-3">
-                                        <i class="fas fa-times"></i>
-                                    </button>
+                                    <form action="{{route('adminDeleteUser', $post->author->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm px-3">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

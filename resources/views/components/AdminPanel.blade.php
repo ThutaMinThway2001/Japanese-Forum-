@@ -56,7 +56,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <form action="{{route('logout')}}" method="post">
+                            <form action="{{route('adminLogout')}}" method="post">
                                 @csrf
                                 <button class="dropdown-item btn btn-sm btn-danger ">Logout</button>
                             </form>

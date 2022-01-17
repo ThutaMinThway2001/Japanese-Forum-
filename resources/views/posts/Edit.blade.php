@@ -1,6 +1,6 @@
 <x-MasterLayout>
     <main class="tm-main">
-        <form action="{{route('update', $post->id)}}" method="post">
+        <form action="{{route('updatePost', $post->id)}}" method="post">
             @csrf
             @method('PATCH')
             <!-- Title input -->
@@ -39,7 +39,7 @@
             </select>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary float-end">Update</button>
+            <button type="submit" class="btn2 btn btn-warning float-end">Update</button>
         </form>
     </main>
 </x-MasterLayout>

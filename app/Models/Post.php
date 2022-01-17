@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Like;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
@@ -11,11 +12,16 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $with = ['category', 'author', 'comments'];
+    protected $with = ['category', 'author', 'comments', 'likes'];
 
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 
     public function category()
